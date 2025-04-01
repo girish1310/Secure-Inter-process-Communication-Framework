@@ -36,5 +36,24 @@ int main() {
         printf("Memory allocation failed!\n");
         return 1;
     }
+
+     // Input message
+     printf("Enter a message: ");
+     fgets(message, maxLen + 1, stdin);
+     message[strcspn(message, "\n")] = '\0'; 
+ 
+     // Encrypt the message
+     xorEncryptDecrypt(message, FIXED_KEY, encrypted);
+     printf("\n🔹 Message Encrypted Successfully!\n");
+ 
+     // Ask for decryption key
+     printf("\nEnter a 16-character key to decrypt: ");
+     fgets(userKey, 17, stdin);
+     userKey[strcspn(userKey, "\n")] = '\0'; // Remove newline
+ 
+
+
+     
+
     return 0;
 }

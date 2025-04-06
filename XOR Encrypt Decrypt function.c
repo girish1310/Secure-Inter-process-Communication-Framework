@@ -52,6 +52,18 @@ int main() {
      userKey[strcspn(userKey, "\n")] = '\0'; // Remove newline
  
 
+    // Validate key
+    if (strcmp(userKey, FIXED_KEY) == 0) {
+        xorEncryptDecrypt(encrypted, FIXED_KEY, decrypted);
+        printf("\n✅ Correct key! \n Decrypted message: %s\n", decrypted);
+    } else {
+        printf("\n❌ Incorrect key! Decryption failed.\n");
+    }
+
+    // Free allocated memory
+    free(message);
+    free(encrypted);
+    free(decrypted);
 
      
 

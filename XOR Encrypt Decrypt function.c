@@ -10,7 +10,7 @@ void xorEncryptDecrypt(char *message, const char *key, char *output) {
     int keyLen = strlen(key);
 
     for (int i = 0; i < msgLen; i++) {
-        output[i] = message[i] ^ key[i % keyLen];  // XOR with key
+        output[i] = message[i] ^ key[i % keyLen]; 
     }
     output[msgLen] = '\0'; 
 }
@@ -22,12 +22,11 @@ int main() {
     char userKey[17]; 
     int maxLen;
 
-    // message length input
+   
     printf("Enter the length of your message: ");
     scanf("%d", &maxLen);
     getchar(); 
 
-    // Allocate memory dynamically
     message = (char *)malloc(maxLen + 1);
     encrypted = (char *)malloc(maxLen + 1);
     decrypted = (char *)malloc(maxLen + 1);
@@ -37,22 +36,22 @@ int main() {
         return 1;
     }
 
-     // Input message
+    
      printf("Enter a message: ");
      fgets(message, maxLen + 1, stdin);
      message[strcspn(message, "\n")] = '\0'; 
  
-     // Encrypt the message
+   
      xorEncryptDecrypt(message, FIXED_KEY, encrypted);
      printf("\n🔹 Message Encrypted Successfully!\n");
  
-     // Ask for decryption key
+    
      printf("\nEnter a 16-character key to decrypt: ");
      fgets(userKey, 17, stdin);
-     userKey[strcspn(userKey, "\n")] = '\0'; // Remove newline
+     userKey[strcspn(userKey, "\n")] = '\0'; 
  
 
-    // Validate key
+    
     if (strcmp(userKey, FIXED_KEY) == 0) {
         xorEncryptDecrypt(encrypted, FIXED_KEY, decrypted);
         printf("\n✅ Correct key! \n Decrypted message: %s\n", decrypted);
@@ -60,7 +59,7 @@ int main() {
         printf("\n❌ Incorrect key! Decryption failed.\n");
     }
 
-    // Free allocated memory
+    
     free(message);
     free(encrypted);
     free(decrypted);

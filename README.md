@@ -23,5 +23,5 @@ In modern operating systems, **inter-process communication (IPC)** is vital for 
 - Build System: **Makefile**
 - Optional UI: **Ncurses** for CLI visualization
 
-## 📁 Project Structure
+#
 
